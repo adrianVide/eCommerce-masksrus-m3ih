@@ -19,22 +19,23 @@ const {
 router.post(
     '/signup',
 
-    isLoggedIn(),
+    isNotLoggedIn(),
     validationLoggin(),
 
     async (req, res, next) => {
 
-        const { username, email, password, shippingAddress } = req.body
+        const { email, password, shippingAddress } = req.body
+        //console.log({email, password, shippingAddress})
 
         try {
-            const userNameExists = await User.findOne({ username }, 'username');
+            const emailExists = await User.findOne({ email }, 'email');
 
-            if (userNameExists) return next(createError(400));
+            if (emailExists) return next(createError(400));
             else {
 
                 const salt = bcrypt.genSaltSync(saltRounds);
                 const hashPass = bcrypt.hashSync(password, salt);
-                const newUser = await User.create({ username, password: hashPass });
+                const newUser = await User.create({ email, shippingAddress, password: hashPass});
 
                 req.session.currentUser = newUser;
 
@@ -54,16 +55,18 @@ router.post('/login',
     isNotLoggedIn(),
     validationLoggin(),
     async (req, res, next) => {
-        const { username, email, password, shippingAddress } = req.body;
+        const { email, password } = req.body;
+        //console.log({email, password})
 
         try {
-            const findUser = await User.findOne({ username });
+            const findUser = await User.findOne({ email });
 
-            if (!user) {
+            if (!findUser) {
                 next(createError(404))
             } else if (bcrypt.compareSync(password, findUser.password)) {
                 req.session.currentUser = findUser;
                 res.status(200).json(findUser);
+                return;
             } else {
                 next(createError(404));
             }
@@ -86,7 +89,7 @@ router.post("/logout", isLoggedIn(), (req, res, next) => {
 //// user
 
 router.get("/user", isLoggedIn(), (req, res, next) => {
-    req.session.currentUser.password = "*";
+    req.session.currentUser.password = "******";
     res.json(req.session.currentUser);
   });
   

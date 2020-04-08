@@ -86,12 +86,26 @@ router.post("/logout", isLoggedIn(), (req, res, next) => {
     return;
   });
 
-//// user
+//// /user
 
 router.get("/user", isLoggedIn(), (req, res, next) => {
     req.session.currentUser.password = "******";
     res.json(req.session.currentUser);
   });
   
+//user/edit-profile
+
+  router.post('/user/:userId/edit-profile', (req, res, next) => {
+    User.findByIdAndUpdate(req.params.userId, req.body)
+    .then(() => {
+      res.json({
+        message: `User ${req.params.userId} is updated successfully.`
+      });
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 
 module.exports = router

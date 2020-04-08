@@ -1,4 +1,15 @@
-masks = [
+const Product = require('../models/Product')
+const mongoose = require('mongoose');
+
+
+mongoose.connect('mongodb://localhost/masksrus', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+Product.collection.drop();
+
+products = [
 
     {
       brand: 'Benehal',
@@ -128,3 +139,9 @@ masks = [
     },
   
   ]
+
+  Product.create(products, (err) => {
+    if(err){throw(err)}
+    console.log(`Created ${products.length} products in db`);
+    mongoose.connection.close();
+  });

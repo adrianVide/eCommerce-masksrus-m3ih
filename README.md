@@ -20,6 +20,7 @@ eCommerce shop for any kind of mask.
 
 ## Routes:
 
+
 | Method | Route Front | Route Back | Description|
 |--------|-------|-------|------------|
 | GET  | / | /products | Main page route. Render home view.
@@ -34,6 +35,7 @@ eCommerce shop for any kind of mask.
 | POST | /private/wishlist | /user/wishlist | Private route. Delete items from the DB and redirect to wishilist view.
 | GET | /products | /products | Renders products-list view.
 | GET | /products/:id | /products/:id | Render mask-details view.
+
 
 
 ## Models

@@ -22,24 +22,16 @@ eCommerce shop for any kind of mask.
 
 | Method | Route | Description|
 |--------|-------|------------|
-
 | GET  | /     | Main page route. Render home view.
-
 | GET  | /login | Login route. Renders login form view.
 | POST | /login | Login route. Sends login form info to the server.
-
 | GET | /signup | Signup route. Renders signup formulary view.
 | POST | /signup | Signup route. Sends signup info to server and creates user in DB.
-
 | GET | /private/edit-profile | Private route. Renders edit-profile form view.
 | POST | /private/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.
-
 | GET | /private/wishlist | Private route. Render the favorites view.
 | POST | /private/wishlist | Private route. Delete favorite from the DB and redirect to favorites view.
-
-
 | GET | /products | Restaurants route. Renders products-list view.
-
 | GET | /products/:id | Restaurants route. Render mask-details view.
 
 

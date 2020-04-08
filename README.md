@@ -21,7 +21,7 @@ eCommerce shop for any kind of mask.
 ## Routes:
 
 | Method | Route Front | Route Back | Description|
-|--------|-------|------------|
+|--------|-------|-------|------------|
 | GET  | / | /products | Main page route. Render home view.
 | GET  | /login | /auth/login | Login route. Renders login form view.
 | POST | /login | /auth/login | Login route. Sends login form info to the server.

@@ -20,27 +20,20 @@ eCommerce shop for any kind of mask.
 
 ## Routes:
 
-| Method | Route | Description|
+| Method | Route Front | Route Back | Description|
 |--------|-------|------------|
-
-| GET  | /     | Main page route. Render home view.
-
-| GET  | /login | Login route. Renders login form view.
-| POST | /login | Login route. Sends login form info to the server.
-
-| GET | /signup | Signup route. Renders signup formulary view.
-| POST | /signup | Signup route. Sends signup info to server and creates user in DB.
-
-| GET | /private/edit-profile | Private route. Renders edit-profile form view.
-| POST | /private/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.
-
-| GET | /private/wishlist | Private route. Render the favorites view.
-| POST | /private/wishlist | Private route. Delete favorite from the DB and redirect to favorites view.
-
-
-| GET | /products | Restaurants route. Renders products-list view.
-
-| GET | /products/:id | Restaurants route. Render mask-details view.
+| GET  | / | /products | Main page route. Render home view.
+| GET  | /login | /auth/login | Login route. Renders login form view.
+| POST | /login | /auth/login | Login route. Sends login form info to the server.
+| GET | /signup | /auth/signup | Signup route. Renders signup formulary view.
+| POST | /signup | /auth/signup | Signup route. Sends signup info to server and creates user in DB.
+| GET | /user | /user | Private route. Renders profile view.
+| GET | /user/edit-profile | /user/edit-profile | Private route. Renders edit-profile form view.
+| POST | /user/edit-profile | /user/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.
+| GET | /user/wishlist | /user/wishlist | Private route. Render the wishlist view.
+| POST | /private/wishlist | /user/wishlist | Private route. Delete items from the DB and redirect to wishilist view.
+| GET | /products | /products | Renders products-list view.
+| GET | /products/:id | /products/:id | Render mask-details view.
 
 
 ## Models
@@ -53,8 +46,8 @@ User model
   email: String,
   password: String,
   shippingAddress: String,
-  productList: [Object.type. ref'product']
-  favouriteProducts: [Object.type ref'product']
+  cartList: [Object.type. ref'product']
+  wishlist: [{Object.type ref'product', quantity}]
 }
 
 ```

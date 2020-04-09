@@ -13,6 +13,6 @@ router.get("/products/:id", async (req, res, next) => {
   const theProduct = await Product.findOne();
 });
 
-router.get("/search-result", async (req, res, next) => {});
+router.get("/search-result", async (req, res, next) => { });
 
 module.exports = router;

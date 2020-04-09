@@ -24,10 +24,6 @@ router.post("/addtowishlist/:id", async (req, res, next) => {
   const theProduct = await Product.findById(req.params.id);
   res.json(theProduct);
 
-<<<<<<< HEAD
-=======
-  const loggedUser = await User.findById(req.session.currentUser._id);
->>>>>>> abb686823e05c9cddbe9e719e10f6f0bb00ce82d
 
   await User.findByIdAndUpdate(loggedUser, { $push: { wishList: theProduct } });
 

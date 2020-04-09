@@ -24,15 +24,16 @@ eCommerce shop for any kind of mask.
 | Method | Route Front | Route Back | Description| Completed routes 
 |--------|-------|-------|------------|--------|
 | GET  | / | /products | Main page route. Render home view.|yes|
-| POST | auth/login | /auth/login | Login route. Sends login form info to the server.|no|
-| POST | auth/signup | /auth/signup | Signup route. Sends signup info to server and creates user in DB.|no|
-| GET | /user | /user | Private route. Renders profile view.|no|
-| GET | /user/edit-profile | /user/edit-profile | Private route. Renders edit-profile form view.|no|
-| POST | /user/edit-profile | /user/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.|no|
+| POST | auth/login | /auth/login | Login route. Sends login form info to the server.|yes|
+| POST | auth/signup | /auth/signup | Signup route. Sends signup info to server and creates user in DB.|yes|
+| POST | auth/logout | /auth/logout | logout route.logs out user in db.|yes|
+| GET | /user | /user | Private route. Renders profile view.|yes|
+| POST | auth/user/:id/edit-profile | /user/:id/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.|yes|
 | GET | /user/wishlist | /user/wishlist | Private route. Render the wishlist view.|no|
-| POST | /private/wishlist | /user/wishlist | Private route. Delete items from the DB and redirect to wishilist view.|no|
-| GET | /products | /products | Renders products-list view.|no|
-| GET | /products/:id | /products/:id | Render mask-details view.|no|
+| POST | /user/wishlist | /user/wishlist | Private route. Add items from the DB and redirect to wishilist view.|no|
+|DELETE| /user/wishlist | /user/wishlist| Removes products from wishlist.|no|
+| GET | /products | /products | Renders products-list view.|yes|
+| GET | /products/:id | /products/:id | Render mask-details view.|yes|
 
 
 

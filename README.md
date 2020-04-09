@@ -30,7 +30,6 @@ eCommerce shop for any kind of mask.
 | GET | /user | /user | Private route. Renders profile view.|yes|
 | POST | auth/user/:id/edit-profile | /user/:id/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.|yes|
 | GET | /user/wishlist | /user/wishlist | Private route. Render the wishlist view.|no|
-| POST | /user/wishlist | /user/wishlist | Private route. Add items from the DB and redirect to wishilist view.|no|
 |DELETE| /user/wishlist | /user/wishlist| Removes products from wishlist.|no|
 | GET | /products | /products | Renders products-list view.|yes|
 | GET | /products/:id | /products/:id | Render mask-details view.|yes|

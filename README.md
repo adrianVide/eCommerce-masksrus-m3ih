@@ -21,20 +21,18 @@ eCommerce shop for any kind of mask.
 ## Routes:
 
 
-| Method | Route Front | Route Back | Description|
-|--------|-------|-------|------------|
-| GET  | / | /products | Main page route. Render home view.
-| GET  | /login | /auth/login | Login route. Renders login form view.
-| POST | /login | /auth/login | Login route. Sends login form info to the server.
-| GET | /signup | /auth/signup | Signup route. Renders signup formulary view.
-| POST | /signup | /auth/signup | Signup route. Sends signup info to server and creates user in DB.
-| GET | /user | /user | Private route. Renders profile view.
-| GET | /user/edit-profile | /user/edit-profile | Private route. Renders edit-profile form view.
-| POST | /user/edit-profile | /user/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.
-| GET | /user/wishlist | /user/wishlist | Private route. Render the wishlist view.
-| POST | /private/wishlist | /user/wishlist | Private route. Delete items from the DB and redirect to wishilist view.
-| GET | /products | /products | Renders products-list view.
-| GET | /products/:id | /products/:id | Render mask-details view.
+| Method | Route Front | Route Back | Description| Completed routes 
+|--------|-------|-------|------------|--------|
+| GET  | / | /products | Main page route. Render home view.|yes|
+| POST | auth/login | /auth/login | Login route. Sends login form info to the server.|no|
+| POST | auth/signup | /auth/signup | Signup route. Sends signup info to server and creates user in DB.|no|
+| GET | /user | /user | Private route. Renders profile view.|no|
+| GET | /user/edit-profile | /user/edit-profile | Private route. Renders edit-profile form view.|no|
+| POST | /user/edit-profile | /user/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.|no|
+| GET | /user/wishlist | /user/wishlist | Private route. Render the wishlist view.|no|
+| POST | /private/wishlist | /user/wishlist | Private route. Delete items from the DB and redirect to wishilist view.|no|
+| GET | /products | /products | Renders products-list view.|no|
+| GET | /products/:id | /products/:id | Render mask-details view.|no|
 
 
 

@@ -29,10 +29,14 @@ eCommerce shop for any kind of mask.
 | POST | auth/logout | /auth/logout | logout route.logs out user in db.|yes|
 | GET | /user | /user | Private route. Renders profile view.|yes|
 | POST | auth/user/:id/edit-profile | /user/:id/edit-profile | Private route. Sends edit-profile info to server and updates user in DB.|yes|
-| GET | /user/wishlist | /user/wishlist | Private route. Render the wishlist view.|no|
+| GET | /user/:id/wishlist | /user/:id/wishlist | Private route. Render the wishlist view.|no|
 |DELETE| /user/wishlist | /user/wishlist| Removes products from wishlist.|no|
 | GET | /products | /products | Renders products-list view.|yes|
 | GET | /products/:id | /products/:id | Render mask-details view.|yes|
+| POST | /products/:id | /products/:id | Post the user's product to DB.|yes|
+| POST |               | /user/:id/cart|Post the products into User's product list array
+| GET |                 |/user/:id/cart| Brings the cart's products from db|
+
 
 
 

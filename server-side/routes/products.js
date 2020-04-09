@@ -30,6 +30,8 @@ router.post("/addtowishlist/:id", async (req, res, next) => {
   await console.log(loggedUser);
 });
 
+
+
 router.post("/addtocart/:id", async (req, res, next) => {
   const theProduct = await Product.findById(req.params.id);
 

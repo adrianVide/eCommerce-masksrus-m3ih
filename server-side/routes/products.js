@@ -15,7 +15,7 @@ router.get("/:id", async (req, res, next) => {
     console.log(theProduct);
     res.json(theProduct);
   } catch (error) {
-    next(error);  
+    res.status(404).json({errorMessage: 'Not found'});  
   }
 });
 

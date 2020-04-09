@@ -9,10 +9,18 @@ router.get("/", async (req, res, next) => {
     : res.send("No products found!");
 });
 
-router.get("/products/:id", async (req, res, next) => {
-  const theProduct = await Product.findOne();
+router.get("/:id", async (req, res, next) => {
+  try {
+    const theProduct = await Product.findById(req.params.id);
+    console.log(theProduct);
+    res.json(theProduct);
+  } catch (error) {
+    res.status(404).json({errorMessage: 'Not found'});  
+  }
 });
 
+
 router.get("/search-result", async (req, res, next) => { });
+
 
 module.exports = router;

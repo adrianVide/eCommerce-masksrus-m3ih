@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/User')
-const Product = require('../models/Product')
-const mongoose = require('mongoose')
-
-
 
 
 /* GET all the user wishlist products */

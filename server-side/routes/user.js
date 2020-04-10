@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/User')
+const Product = require('../models/Product')
 
 
 /* GET all the user wishlist products */
@@ -20,16 +21,15 @@ router.get('/:id/wishlist', function (req, res, next) {
 
 /// delete wishList
 
-router.delete('/:id/wishList', (req, res, next) => {
-  User.findByIdAndRemove(req.session.currentUser._id)
-    .then(() => {
-      res.json({ message: `wishList with ${req.session.currentUser._id} is removed successfully.` });
-    })
-    .catch(err => {
-      res.json(err);
-    })
-})
+router.post("/removefromwishlist/:id", async (req, res, next) => {
+  const theProduct = await Product.findById(req.params.id);
+  res.json(theProduct);
+  const loggedUser = req.session.currentUser._id
 
+  await User.findByIdAndUpdate(loggedUser, { $pull: { wishList: theProduct._id } });
+
+  await console.log(loggedUser);
+});
 
 
 // GET all products from cart
@@ -37,10 +37,10 @@ router.delete('/:id/wishList', (req, res, next) => {
 router.get('/:id/cart', async (req, res, next) => {
 
   try {
-    const requests = await User.findById(req.session.currentUser._id).populate('cartList.productId')
-    res.json(requests);
-  } catch (error) {
-    res.status(404).json({ errorMessage: 'Nothing found' })
+  const requests = await User.findById(req.session.currentUser._id).populate('cartList.productId')
+  res.json(requests);
+  }catch(error) {
+    res.status(404).json({errorMessage: 'Nothing found'})
   }
 });
 

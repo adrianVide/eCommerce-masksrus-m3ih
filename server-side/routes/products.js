@@ -23,7 +23,7 @@ router.get("/:id", async (req, res, next) => {
 router.post("/addtowishlist/:id", async (req, res, next) => {
   const theProduct = await Product.findById(req.params.id);
   res.json(theProduct);
-
+  const loggedUser = req.session.currentUser._id
 
   await User.findByIdAndUpdate(loggedUser, { $push: { wishList: theProduct } });
 

@@ -20,7 +20,10 @@ import { needAuth } from "../lib/Auth-provider";
         if (password.length < 6) {
           errors.push("Password should be at least 6 characters long");
         }
-      
+        
+        if(password !== confirmPasword) {
+            
+        }
         return errors;
       }
 

@@ -5,7 +5,7 @@ const Product = require('../models/Product')
 
 
 /* GET all the user wishlist products */
-router.get('/:id/wishlist', function (req, res, next) {
+router.get('/wishlist/:id', function (req, res, next) {
 
   const { _id } = req.session.currentUser;
   User.findById(_id).populate('wishList')
@@ -34,7 +34,7 @@ router.post("/removefromwishlist/:id", async (req, res, next) => {
 
 // GET all products from cart
 
-router.get('/:id/cart', async (req, res, next) => {
+router.get('/cart/:id', async (req, res, next) => {
 
   try {
   const requests = await User.findById(req.session.currentUser._id).populate('cartList.productId')

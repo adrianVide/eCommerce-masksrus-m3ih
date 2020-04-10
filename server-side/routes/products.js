@@ -56,8 +56,7 @@ router.post("/addtocart/:id", async (req, res, next) => {
   res.json("Cartlist updated correctly");
 });
 
-router.delete('/deletefromcart/:id', async (req, res, next) => {
-
+router.delete("/deletefromcart/:id", async (req, res, next) => {
   const productToDelete = req.params.id;
   const loggedUser = await User.findById(req.session.currentUser._id);
 
@@ -74,9 +73,9 @@ router.delete('/deletefromcart/:id', async (req, res, next) => {
 
   await User.findByIdAndUpdate(req.session.currentUser._id, {
     cartList: updatedCartList,
-  })
-  res.json('Product removed')
+  });
+  res.json("Product removed");
   // await loggedUser.cartList.pull({ productId: productToDelete })
-})
+});
 
 module.exports = router;

@@ -1,3 +1,4 @@
+const cors = require("cors");
 require("dotenv").config();
 
 const mongoose = require("mongoose");
@@ -14,6 +15,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var authRouter= require('./routes/auth/auth.js')
 var productsRouter= require('./routes/products.js')
+
 
 var app = express();
 
@@ -47,6 +49,16 @@ app.use(
   })
 );
 
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"] // <== this will be the URL of our React app (it will be running on port 3000)
+  })
+);
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -64,6 +76,8 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/auth', authRouter);
 app.use('/products', productsRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

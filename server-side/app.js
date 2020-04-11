@@ -14,6 +14,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var authRouter= require('./routes/auth/auth.js')
 var productsRouter= require('./routes/products.js')
+const cors = require("cors");
 
 var app = express();
 
@@ -44,6 +45,14 @@ app.use(
     cookie: {
       maxAge: 24 * 60 * 60 * 1000,
     },
+  })
+);
+
+// CORS MIDDLEWARE SETUP
+app.use(
+  cors({
+    credentials: true,
+    origin: [process.env.PUBLIC_DOMAIN],
   })
 );
 

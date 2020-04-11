@@ -46,5 +46,20 @@
 }
 
 
-/* shop */
+.list-img {
+  width: 40vw;
+}
 
+
+.card-text {
+  font-size: 4vw;
+}
+
+.card-header {
+  border-bottom: 0px solid!important;
+  padding: .15rem 1.25rem;
+    padding-top: 0.2rem!important;
+    padding-right: 1.25rem;
+    padding-bottom: 0.15rem!important;
+    padding-left: 1.25rem;
+}

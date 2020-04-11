@@ -15,13 +15,16 @@ export const MainList = () => {
     <div>
       {listOfMasks.map((mask) => {
         return (
-          <div className="card border-info mb-3" >
-            <div className="card-header">{mask.originalPrice} €</div>
-            <div className="card-body text-info">
-              <h5 className="card-title">{mask.name}</h5>
-              <p className="card-text">
-                {mask.description}
-              </p>
+          <div className="card border-info mb-3">
+            <div className="card-header"><h5>{mask.name}</h5></div>
+            <div className="d-flex card-body text-info">
+              <span className='align-self-center'>
+                <img className="list-img" src={mask.photo} alt="" />{mask.originalPrice} €
+              </span>
+              <div>
+                {/* <h5 className="card-title">{mask.name}</h5> */}
+                <p className="card-text">{mask.description}</p>
+              </div>
             </div>
           </div>
         );

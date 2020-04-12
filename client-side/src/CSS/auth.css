@@ -80,6 +80,7 @@ height:100vh
 /***********************************************/
 
 /*LOGIN*/
+@media (max-width: 650px){
 
 .background-image-login{
 
@@ -111,3 +112,4 @@ height:100vh
         background-color:#1DCBE2;
         border:none;
     }
+}

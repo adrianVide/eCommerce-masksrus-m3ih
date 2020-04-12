@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { needAuth } from "../lib/Auth-provider";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import '../CSS/auth.css'
 
 
@@ -12,6 +13,10 @@ class Signup extends React.Component {
     event.preventDefault();
 
     const { email, password, confirmPassword, shippingAddres} = this.state;
+
+    if(email === ''){
+      throw Error('hola')
+    }
     this.props.signup({ email, password, confirmPassword, shippingAddres});
 
     

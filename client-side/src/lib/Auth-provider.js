@@ -1,5 +1,6 @@
 import React from "react";
 import auth from "./auth"; 
+import Loader from 'react-loader-spinner'
 const { Consumer, Provider } = React.createContext();
 
 
@@ -44,10 +45,10 @@ class AuthProvider extends React.Component {
   }
 
   signup = (user) => {
-    const { email, password, confirmPassword, shippingAddres } = user;
+    const { email, password, confirmPassword, shippingAddress } = user;
   
     auth
-      .signup({ email, password, confirmPassword, shippingAddres })
+      .signup({ email, password, confirmPassword, shippingAddress })
       .then((user) => this.setState({ isLoggedin: true, user }))
       .catch(({ response }) =>
         this.setState({ message: response.data.statusMessage })
@@ -77,7 +78,13 @@ class AuthProvider extends React.Component {
 
     return isLoading ? (
 
-      <div>Loading</div>
+      <div><Loader
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+
+   /></div>
     ) : (
       <Provider value={{ isLoggedin, user, login, logout, signup }}>
         {this.props.children}

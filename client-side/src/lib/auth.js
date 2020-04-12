@@ -5,15 +5,14 @@ class Auth {
     this.auth = axios.create({
       baseURL: "http://localhost:4000",
       withCredentials: true,
-      errors:[]
     });
   }
   
-  signup({ email, password, confirmPassword, shippingAddres}) {
+  signup({ email, password, confirmPassword, shippingAddress}) {
    
   
     return this.auth
-      .post("/auth/signup", { email, password, confirmPassword, shippingAddres })
+      .post("/auth/signup", { email, password, confirmPassword, shippingAddress })
       .then(({ data }) => data);
   }
 

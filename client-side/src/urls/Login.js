@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { needAuth } from "../lib/Auth-provider";
+import {Link} from 'react-router-dom'
 
 class Login extends Component {
   state = { email: "", password: "" };
@@ -19,28 +20,35 @@ class Login extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
-        <h1>Login</h1>
+      <div className='signup-div background-image-login'>
+        <h1 className=' signup-h1'>Login</h1>
 
-        <form onSubmit={this.handleFormSubmit}>
-          <label>email:</label>
+        <form className='form-container' onSubmit={this.handleFormSubmit}>
+        
           <input
+            className ='input-email-login'
             type='text'
             name='email'
+            placeholder='Email @'
             value={email}
             onChange={this.handleChange}
           />
 
-          <label>Password:</label>
+         
           <input
+            className ='inputs-signup'  
             type='password'
             name='password'
+            placeholder='Password'
             value={password}
             onChange={this.handleChange}
           />
 
-          <input type='submit' value='Login' />
+          <input className ='submit-btn-signup' type='submit' value='Login' />
+          
         </form>
+        <p className='signup-p'>Don't have an account??</p>
+        <Link className='linkToLogin-login' to={"/signup"}> Signup</Link>
       </div>
     );
   }

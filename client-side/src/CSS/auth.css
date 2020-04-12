@@ -1,3 +1,5 @@
+/*SIGNUP*/
+
 @media (max-width: 650px){
 
 .container{
@@ -62,7 +64,7 @@ height:100vh
     font-weight: bold;
     text-align: center;
     position: relative;
-    transform: translate(0, 117px);
+    transform: translate(0, 125px);
 }
 
 .linkToLogin-signup {
@@ -74,3 +76,38 @@ height:100vh
 
     }  
 }
+
+/***********************************************/
+
+/*LOGIN*/
+
+.background-image-login{
+
+    background: url('https://drive.google.com/uc?export=download&id=1pEFTFfxg7rnnoutR_AFkcAjezj5WhX45')  no-repeat center center;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100vh;
+    position:relative;
+    opacity:0.9;
+
+}
+
+.linkToLogin-login {
+    position: absolute;
+    right: 45%;
+    top: 50%;
+    color:#1DCBE2;
+    font-weight: bold;
+
+    } 
+
+    .input-email-login {
+        line-height: 1;
+        margin: 10%;
+        border-radius:8px;
+        padding:10px;
+        position:relative;
+        transform: translate(0, 210px);
+        background-color:#1DCBE2;
+        border:none;
+    }

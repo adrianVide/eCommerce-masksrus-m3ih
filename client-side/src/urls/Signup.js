@@ -45,7 +45,7 @@ class Signup extends React.Component {
             name='password'
             value={password}
             onChange={this.handleChange}
-            placeholder='********'
+            placeholder='Password'
           />
 
           <input className ='inputs-signup'
@@ -53,7 +53,7 @@ class Signup extends React.Component {
             name='confirmPassword'
             value={confirmPassword}
             onChange={this.handleChange}
-            placeholder='********'
+            placeholder='Confirm password'
           />
 
           <input className ='inputs-signup'

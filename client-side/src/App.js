@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import { Switch } from "react-router-dom";
 import AuthProvider from "./lib/Auth-provider";
 import Signup from "./urls/Signup";
 import Login from "./urls/Login";
 import User from "./urls/User";
+import { MainList } from './components/MainList';
 import NonPrivRoute from "./components/NonPrivRoute";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -14,6 +16,7 @@ class App extends Component {
     return (
       <AuthProvider>
         <div className='container'>
+        <MainList />
           <Switch>
             <NonPrivRoute exact path='/signup' component={Signup} />
             <NonPrivRoute exact path='/login' component={Login} />

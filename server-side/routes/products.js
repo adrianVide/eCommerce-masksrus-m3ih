@@ -56,6 +56,28 @@ router.post("/addtocart/:id", async (req, res, next) => {
   res.json("Cartlist updated correctly");
 });
 
+router.delete("/deletefromcart/:id", async (req, res, next) => {
+  const productToDelete = req.params.id;
+  const loggedUser = await User.findById(req.session.currentUser._id);
+
+  // console.log('Aqui=========+>' +loggedUser );
+  // console.log('cartlist------->' + loggedUser.cartList[0]);
+
+  const updatedCartList = [...loggedUser.cartList].filter((product) => {
+    console.log(String(product.productId));
+    console.log(productToDelete);
+    return String(product.productId) !== productToDelete;
+  });
+  // console.log(productToDelete);
+  console.log(updatedCartList);
+
+  await User.findByIdAndUpdate(req.session.currentUser._id, {
+    cartList: updatedCartList,
+  });
+  res.json("Product removed");
+  // await loggedUser.cartList.pull({ productId: productToDelete })
+});
+
 router.delete('/deletefromcart/:id', async (req, res, next) => {
 
   const productToDelete = req.params.id;

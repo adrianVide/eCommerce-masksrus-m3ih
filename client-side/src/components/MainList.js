@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
 const MainList = () => {
   const [listOfMasks, setListOfMasks] = useState([]);
   const [wishlistHearts, setWishlistHearts] = useState([]);
@@ -13,6 +14,7 @@ const MainList = () => {
   }, []);
 
   useEffect(() => {
+    
     axios.get("http://localhost:4000/user/").then((responseFromAPI) => {
       setWishlistHearts(responseFromAPI.data);
       console.log(responseFromAPI.data);
@@ -24,7 +26,7 @@ const MainList = () => {
     <div>
       {listOfMasks.map((mask) => {
         return (
-          <div className="card border-info mb-1 shadow">
+          <div key={mask._id} className="card border-info mb-1 shadow">
             
             <div className="d-flex card-body text-info">
               <span className="align-self-center">

@@ -16,7 +16,7 @@ const MainList = () => {
     <div>
       {listOfMasks.map((mask) => {
         return (
-          <div className="card border-info mb-1 shadow">
+          <div key={mask._id} className="card border-info mb-1 shadow">
             
             <div className="d-flex card-body text-info">
               <span className="align-self-center">

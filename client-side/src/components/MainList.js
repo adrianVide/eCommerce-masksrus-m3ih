@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export const MainList = () => {
+const MainList = () => {
   const [listOfMasks, setListOfMasks] = useState([]);
 
   useEffect(() => {
@@ -35,3 +35,5 @@ export const MainList = () => {
     </div>
   );
 };
+
+export default MainList

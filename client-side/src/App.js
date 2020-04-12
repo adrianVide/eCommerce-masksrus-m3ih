@@ -6,7 +6,7 @@ import AuthProvider from "./lib/Auth-provider";
 import Signup from "./urls/Signup";
 import Login from "./urls/Login";
 import User from "./urls/User";
-import { MainList } from './components/MainList';
+import MainList  from './components/MainList';
 import NonPrivRoute from "./components/NonPrivRoute";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -16,9 +16,9 @@ class App extends Component {
     return (
       <AuthProvider>
         <div className='container'>
-        <MainList />
           <Switch>
             <NonPrivRoute exact path='/signup' component={Signup} />
+            <NonPrivRoute exact path='/products' component={MainList} />
             <NonPrivRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/user' component={User} />
           </Switch>

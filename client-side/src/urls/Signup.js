@@ -7,13 +7,13 @@ import '../CSS/auth.css'
 
 class Signup extends React.Component {
 
-  state = { email: "", password: "", confirmPassword: '', shippingAddres: '' };
+  state = { email: "", password: "", confirmPassword: '', shippingAddress: '' };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    const { email, password, confirmPassword, shippingAddres} = this.state;
-    this.props.signup({ email, password, confirmPassword, shippingAddres});
+    const { email, password, confirmPassword, shippingAddress} = this.state;
+    this.props.signup({ email, password, confirmPassword, shippingAddress});
 
     
   }

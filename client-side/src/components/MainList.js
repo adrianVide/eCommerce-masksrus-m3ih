@@ -4,7 +4,7 @@ import axios from "axios";
 export const MainList = () => {
 
   const [listOfMasks, setListOfMasks] = useState([]);
-  const [wishlistHearts, setWishlistHearts] = useState([])
+  const [wishlistHearts, setWishlistHearts] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:4000/products/").then((responseFromAPI) => {
@@ -33,7 +33,7 @@ export const MainList = () => {
                 {mask.originalPrice} €
               </span>
               <div><div className="card-header">
-              <h5>{mask.name}</h5>
+              <h5 className="text-left">{mask.name}</h5>
             </div>
                 {/* <h5 className="card-title">{mask.name}</h5> */}
                 <p className="card-text">{mask.description}</p>

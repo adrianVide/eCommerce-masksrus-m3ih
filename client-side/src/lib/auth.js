@@ -8,11 +8,11 @@ class Auth {
     });
   }
   
-  signup({ email, password, confirmPassword, shippingAddress}) {
+  signup({ email, password}) {
    
   
     return this.auth
-      .post("/auth/signup", { email, password, confirmPassword, shippingAddress })
+      .post("/auth/signup", { email, password })
       .then(({ data }) => data);
   }
 

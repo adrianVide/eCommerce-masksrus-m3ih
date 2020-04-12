@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SearchBar from "./SearchBar";
 
 
 const MainList = () => {
@@ -8,12 +9,14 @@ const MainList = () => {
   useEffect(() => {
     axios.get("http://localhost:4000/products/").then((responseFromAPI) => {
       setListOfMasks(responseFromAPI.data);
-      console.log(responseFromAPI.data);
+      //console.log(responseFromAPI.data);
     });
   }, []);
 
   return (
     <div>
+    <SearchBar/>
+    
       {listOfMasks.map((mask) => {
         return (
           <div key={mask._id} className="card border-info mb-1 shadow">

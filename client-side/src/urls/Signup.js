@@ -13,10 +13,6 @@ class Signup extends React.Component {
     event.preventDefault();
 
     const { email, password, confirmPassword, shippingAddres} = this.state;
-
-    if(email === ''){
-      throw Error('hola')
-    }
     this.props.signup({ email, password, confirmPassword, shippingAddres});
 
     

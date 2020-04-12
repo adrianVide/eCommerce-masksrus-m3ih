@@ -17,6 +17,7 @@ var authRouter= require('./routes/auth/auth.js')
 var productsRouter= require('./routes/products.js')
 
 
+
 var app = express();
 
 
@@ -49,15 +50,13 @@ app.use(
   })
 );
 
+// CORS MIDDLEWARE SETUP
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000"] // <== this will be the URL of our React app (it will be running on port 3000)
+    origin: [process.env.PUBLIC_DOMAIN],
   })
 );
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

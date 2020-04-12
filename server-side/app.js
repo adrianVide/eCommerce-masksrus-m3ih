@@ -15,7 +15,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var authRouter= require('./routes/auth/auth.js')
 var productsRouter= require('./routes/products.js')
-const cors = require("cors");
+
 
 
 var app = express();

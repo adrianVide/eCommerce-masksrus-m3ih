@@ -24,7 +24,7 @@ router.post(
 
     async (req, res, next) => {
 
-        const { email, password, shippingAddress } = req.body
+        const { email, password, confirmPassword, shippingAddress } = req.body
         //console.log({email, password, shippingAddress})
 
         try {
@@ -35,7 +35,7 @@ router.post(
 
                 const salt = bcrypt.genSaltSync(saltRounds);
                 const hashPass = bcrypt.hashSync(password, salt);
-                const newUser = await User.create({ email, shippingAddress, password: hashPass});
+                const newUser = await User.create({ email, shippingAddress, confirmPassword, password: hashPass});
 
                 req.session.currentUser = newUser;
 

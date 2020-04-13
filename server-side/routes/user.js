@@ -10,7 +10,7 @@ router.get('/wishlist/:id', function (req, res, next) {
   const { _id } = req.session.currentUser;
   User.findById(_id).populate('wishList')
     .then(user => {
-      console.log(user)
+      //console.log(user)
       res.json(user.wishList)
     })
     .catch(error => {
@@ -28,7 +28,7 @@ router.post("/removefromwishlist/:id", async (req, res, next) => {
 
   await User.findByIdAndUpdate(loggedUser, { $pull: { wishList: theProduct._id } });
 
-  await console.log(loggedUser);
+ // await console.log(loggedUser);
 });
 
 
@@ -38,7 +38,7 @@ router.get('/cart/:id', async (req, res, next) => {
 
   try {
   const requests = await User.findById(req.session.currentUser._id).populate('cartList.productId')
-  res.json(requests);
+  res.json(requests.cartList);
   }catch(error) {
     res.status(404).json({errorMessage: 'Nothing found'})
   }
@@ -48,7 +48,7 @@ router.get('/cart/:id', async (req, res, next) => {
 
 router.get('/wishlistid/:id', async (req, res, next) => {
 
-  console.log(req.session.currentUser._id);
+  //console.log(req.session.currentUser._id);
   try {
     const requests = await User.findById(req.session.currentUser._id)
     res.json(requests.wishList);

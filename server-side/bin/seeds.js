@@ -15,7 +15,7 @@ products = [
       brand: 'Benehal',
       name: 'MaskinN95',
       description: 'máscara antipolvo máscara facial no tejida con válvula antipolvo N95 PM 2,5 mascarilla respiradora con válvula',
-      originalPrice: '6,65',
+      originalPrice: '6.65',
       actualPrice: '',
       feedback: [{}],// backlog
       rating: [],
@@ -32,7 +32,7 @@ products = [
       brand: 'Jinxiu Yuexing',
       name: '3600',
       description: ' mascarilla para fumigación máscara de gas protección antipolvo máscara para trabajo de seguridad de spray para soldar de protección contra la contaminación',
-      originalPrice: '22,04',
+      originalPrice: '22.04',
       actualPrice: '',
       feedback: [{}],// backlog
       rating: [],
@@ -49,7 +49,7 @@ products = [
       brand: 'OLOEY Online Store',
       name: 'AntiDust',
       description: 'Mascarilla anticontaminación adulto Anti PM 2,5 polen mascarilla antipolvo lavable antiniebla antipolvo mascarilla carbón activado filtro con 2 filtros',
-      originalPrice: '1,42',
+      originalPrice: '1.42',
       actualPrice: '',
       feedback: [{}],// backlog
       rating: [],
@@ -68,7 +68,7 @@ products = [
       brand: 'SafeMgr Store',
       name: 'mask 6800',
       description: 'Mascarilla de Gas para pintura facial completa respirador 6800 con cartucho de filtro de carbono máscara protectora completa 6800',
-      originalPrice: '27,93',
+      originalPrice: '27.93',
       actualPrice: '',
       feedback: [{}],// backlog
       rating: [],
@@ -88,7 +88,7 @@ products = [
       brand: 'Protect Your Heathy Store',
       name: 'mask 6800',
       description: 'Mascarillas N95 máscara con respirador respiración Válvula de kn95 kf95 boca máscara filtro facial enmascarado PM2.5 máscaras ffp1 FFP2 FFP3 KF94 n95 máscara',
-      originalPrice: '27,93',
+      originalPrice: '27.93',
       actualPrice: '',
       feedback: [{}],// backlog
       rating: [],
@@ -107,7 +107,7 @@ products = [
       brand: 'Tranto Bike Store',
       name: 'BuckL05',
       description: '2PC boca mufla Anti polvo ciclismo máscaras con filtro media cara de máscara para ciclismo máscaras formación máscara',
-      originalPrice: '1,97',
+      originalPrice: '1.97',
       actualPrice: '',
       feedback: [{}],// backlog
       rating: [],
@@ -125,7 +125,7 @@ products = [
         brand: 'Ceramic Houseware Store',
         name: 'YYW',
         description: 'Máscaras de dragón decoración máscaras Animales máscara de Halloween accesorios de fiesta de Carnaval dragón Cospaly herramientas realista Masker Prop',
-        originalPrice: '7,90',
+        originalPrice: '7.90',
         actualPrice: '',
         feedback: [{}],// backlog
         rating: [],

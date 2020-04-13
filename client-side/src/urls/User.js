@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { needAuth } from "../lib/Auth-provider";
 
-class Private extends Component {
+class User extends Component {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class Private extends Component {
   }
 }
 
-export default needAuth(Private);
+export default needAuth(User);

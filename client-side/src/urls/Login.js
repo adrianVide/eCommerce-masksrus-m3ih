@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { needAuth } from "../lib/Auth-provider";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import '../CSS/auth.css'
 import {Link} from 'react-router-dom'
 
 class Login extends Component {
@@ -28,7 +29,7 @@ class Login extends Component {
         
           <input
             className ='input-email-login'
-            type='text'
+            type='email'
             name='email'
             placeholder='Email @'
             value={email}

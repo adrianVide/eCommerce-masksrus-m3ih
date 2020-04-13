@@ -11,10 +11,11 @@ import NonPrivRoute from "./components/NonPrivRoute";
 import PrivateRoute from "./components/PrivateRoute";
 
 
+
 class App extends Component {
   render() {
     return (
-      <AuthProvider>
+      <AuthProvider>  
         <div className='container'>
           <Switch>
             <NonPrivRoute exact path='/signup' component={Signup} />

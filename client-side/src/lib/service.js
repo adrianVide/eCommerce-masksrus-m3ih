@@ -10,6 +10,10 @@ class apiService {
   get_wishlist(props) {
     return this.auth.get(`/user/wishlistid/${props.user._id}`);
   }
+
+  get_cartlist(props){
+    return this.auth.get(`user/cart/${props.user._id}`)
+  }
 }
 
 const ApiService = new apiService();

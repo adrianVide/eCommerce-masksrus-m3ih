@@ -10,7 +10,8 @@ import MainList  from './components/MainList';
 import NonPrivRoute from "./components/NonPrivRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import WishList from "./components/WishList";
-
+import Cart from './components/Cart'
+import Home from './urls/Home'
 
 
 class App extends Component {
@@ -19,11 +20,14 @@ class App extends Component {
       <AuthProvider>  
         <div className='container'>
           <Switch>
+            <NonPrivRoute exact path='/' component={Home} />
             <NonPrivRoute exact path='/signup' component={Signup} />
             <NonPrivRoute exact path='/products' component={MainList} />
             <NonPrivRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/user' component={User} />
             <PrivateRoute exact path='/wishlist' component={WishList} />
+            <PrivateRoute exact path='/cart' component={Cart} />
+
 
           </Switch>
         </div>

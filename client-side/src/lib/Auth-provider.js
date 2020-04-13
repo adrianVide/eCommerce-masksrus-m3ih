@@ -39,7 +39,7 @@ class AuthProvider extends React.Component {
       .user()
       .then((user) =>{
       console.log("AuthProvider did Mount")
-      console.log(user)
+    // console.log(user)
         this.setState({ isLoggedin: true, user: user, isLoading: false })
       })
       .catch((err) =>

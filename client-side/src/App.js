@@ -9,6 +9,7 @@ import User from "./urls/User";
 import MainList  from './components/MainList';
 import NonPrivRoute from "./components/NonPrivRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import WishList from "./components/WishList";
 
 
 class App extends Component {
@@ -21,6 +22,8 @@ class App extends Component {
             <NonPrivRoute exact path='/products' component={MainList} />
             <NonPrivRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/user' component={User} />
+            <PrivateRoute exact path='/wishlist' component={WishList} />
+
           </Switch>
         </div>
       </AuthProvider>

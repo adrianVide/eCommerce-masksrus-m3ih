@@ -44,5 +44,17 @@ router.get('/cart/:id', async (req, res, next) => {
   }
 });
 
+// GET all wishlist ids
+
+router.get('/wishlistid/:id', async (req, res, next) => {
+
+  try {
+  const requests = await User.findById(req.session.currentUser._id)
+  res.json(requests);
+  }catch(error) {
+    res.status(404).json({errorMessage: 'Nothing found'})
+  }
+});
+
 
 module.exports = router;

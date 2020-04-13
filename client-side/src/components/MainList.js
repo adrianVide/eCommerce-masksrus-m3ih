@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-
 const MainList = () => {
   const [listOfMasks, setListOfMasks] = useState([]);
-  const [wishlistHearts, setWishlistHearts] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:4000/products/").then((responseFromAPI) => {
@@ -13,14 +11,7 @@ const MainList = () => {
     });
   }, []);
 
-  useEffect(() => {
-    
-    axios.get("http://localhost:4000/user/").then((responseFromAPI) => {
-      setWishlistHearts(responseFromAPI.data);
-      console.log(responseFromAPI.data);
-    });
-  }, []);
-
+  
 
   return (
     <div>

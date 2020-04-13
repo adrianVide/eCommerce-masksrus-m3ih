@@ -6,33 +6,47 @@ import '../CSS/auth.css'
 
 
 class Signup extends React.Component {
-
-  state = { email: "", password: "", confirmPassword: '', shippingAddress: '' };
-
+  
+  state = { email: "", password: "", confirmPassword: '', shippingAddress: '', errorMessage:''};
+  
+  
   handleFormSubmit = (event) => {
-    event.preventDefault();
-
+    event.preventDefault();   
     const { email, password, confirmPassword, shippingAddress} = this.state;
-    this.props.signup({ email, password, confirmPassword, shippingAddress});
+    if(email === '' || password=== '' || confirmPassword === '' || shippingAddress === ''){
+      this.setState({
+        errorMessage: 'Fill the gaps'
+      })
+      console.log(this.state.errorMessage)
+    } else {
+      
+      this.props.signup({ email, password, confirmPassword, shippingAddress});
+      console.log(this.props.signup)
 
-    
+    }
+
+  
   }
+
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+    
   };
 
-  render() {
-    const { email, password, confirmPassword, shippingAddress } = this.state;
 
+  render() {
+    const { email, password, confirmPassword, shippingAddress} = this.state;
+    
     return (
       <div className='signup-div background-image-signup' >
         <h1 className=' signup-h1'>Sign Up</h1>
-
         <form className='form-container' onSubmit={this.handleFormSubmit}>
+        
+        {this.state.errorMessage ? <p >{this.state.errorMessage}</p> : null}
 
-         
-          <input className ='inputs-signup'
+          <input className ='inputs-signup' 
             type='email'
             name='email'
             value={email}

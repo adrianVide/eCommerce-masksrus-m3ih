@@ -1,23 +1,33 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import SearchBar from "./SearchBar";
-
+import React from 'react'
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 
 const MainList = () => {
-  const [listOfMasks, setListOfMasks] = useState([]);
+   
 
-  useEffect(() => {
-    axios.get("http://localhost:4000/products/").then((responseFromAPI) => {
-      setListOfMasks(responseFromAPI.data);
-      //console.log(responseFromAPI.data);
-    });
-  }, []);
+    const [data, setData] = useState([]);
+    const [query, setQuery]= useState('')
 
-  return (
-    <div>
-    <SearchBar/>
-    
-      {listOfMasks.map((mask) => {
+    useEffect(() => {
+      axios.get(`http://localhost:4000/products`)
+      .then((apiResponse) => {setData(apiResponse.data)})
+    }, [])
+
+
+    const filteredData = data.filter(product => product.name.includes(query)) 
+
+      return (
+        <div>
+          <form>
+            <input
+              placeholder="Search for..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value) }
+              name='query'
+            />
+          </form>
+
+          {filteredData ? (filteredData.map((mask) => {
         return (
           <div key={mask._id} className="card border-info mb-1 shadow">
             
@@ -35,9 +45,10 @@ const MainList = () => {
             </div>
           </div>
         );
-      })}
-    </div>
-  );
-};
+      })): null }
+          {/* <div>{filteredData ? filteredData.map(product => <p>{product.name}</p>) : null}</div> */}
+        </div>
+      );
+    };
 
-export default MainList
+  export default MainList

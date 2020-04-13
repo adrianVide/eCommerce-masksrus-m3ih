@@ -1,7 +1,7 @@
 /*SIGNUP*/
 
 @media (max-width: 650px){
-
+    
 .container{
     
 height:100vh
@@ -44,7 +44,7 @@ height:100vh
     border-radius:8px;
     padding:10px;
     position:relative;
-    transform: translate(0, 180px);
+    transform: translate(-15px, 180px);
     background-color:#1DCBE2;
     border:none;
 }
@@ -69,8 +69,8 @@ height:100vh
 
 .linkToLogin-signup {
     position: absolute;
-    right: 48%;
-    top: 73%;
+    right: 45%;
+    top: 75%;
     color:#1DCBE2;
     font-weight: bold;
 
@@ -108,7 +108,7 @@ height:100vh
         border-radius:8px;
         padding:10px;
         position:relative;
-        transform: translate(0, 210px);
+        transform: translate(-15px, 210px);
         background-color:#1DCBE2;
         border:none;
     }

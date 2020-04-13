@@ -37,6 +37,7 @@ const Cart = (props) => {
               <p className="card-text">{productInCart.description}</p>
               <p>x:{productInCart.quantity}</p>
             </div>
+            <span>{productInCart.productId.originalPrice*productInCart.quantity}</span>
           </div>
 
           

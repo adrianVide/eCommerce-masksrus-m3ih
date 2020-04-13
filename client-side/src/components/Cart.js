@@ -52,7 +52,7 @@ const Cart = (props) => {
   return <div>
 
         <div>
-          <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <nav class="navbar navbar-expand-md navbar-dark bg-danger ">
             <div class="container">
               <a class="navbar-brand" href="index.html">Shopping list</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,7 +117,7 @@ const Cart = (props) => {
                     </thead>
      {cartList.map(productInCart => {
       return (
-                    <tbody>
+                    <tbody >
                       <tr>
                         <td><img style={{height:'40px'}} src = {productInCart.productId.photo} alt=''/> </td>
                         <td>{productInCart.productId.name}</td>
@@ -126,11 +126,15 @@ const Cart = (props) => {
                         <td class="text-right">{productInCart.productId.originalPrice} €</td>
                         <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                       </tr>
+                    </tbody>
+              
+        )}
+    )}
                       <tr>
-                       
                         <td> Subtotal:</td>
                         <td class="text-right"> {cartList.length ? cartList.reduce((acc, currentv) => { console.log(acc); console.log(currentv); return (Number(acc.productId.originalPrice * acc.quantity) + Number(currentv.productId.originalPrice * currentv.quantity)) }).toFixed(2) : 'Loading'}€</td>
                       </tr>
+
                       <tr>
                         <td></td>
                         <td></td>
@@ -139,6 +143,7 @@ const Cart = (props) => {
                         <td>Shipping</td>
                         <td class="text-right">6,90 €</td>
                       </tr>
+                      
                       <tr>
                         <td></td>
                         <td></td>
@@ -147,10 +152,6 @@ const Cart = (props) => {
                         <td><strong>Total: </strong></td>
                         <td class="text-right"><strong> {cartList.length ? cartList.reduce((acc, currentv) => { console.log(acc); console.log(currentv); return (Number(acc.productId.originalPrice * acc.quantity) + Number(currentv.productId.originalPrice * currentv.quantity)) }).toFixed(2) : 'Loading'}€</strong></td>
                       </tr>
-                    </tbody>
-              
-        )}
-    )}
                   </table>
               
               <div class="col mb-2">
@@ -178,24 +179,13 @@ const Cart = (props) => {
                     Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
                 </p>
                 </div>
-
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                  <h5>Informations</h5>
-                  <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25" />
-                  <ul class="list-unstyled">
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                    <li><a href="">Link 4</a></li>
-                  </ul>
-                </div>
-
+                
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
                   <h5>Others links</h5>
-                  <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25" />
+                  <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25" />
                   <ul class="list-unstyled">
-                    <li>Signup</li>
-                    <li>Login</li>
+                    <li>About us</li>
+                    <li>FAQ</li>
                 
                   </ul>
                 </div>

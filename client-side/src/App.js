@@ -12,10 +12,11 @@ import PrivateRoute from "./components/PrivateRoute";
 import WishList from "./components/WishList";
 
 
+
 class App extends Component {
   render() {
     return (
-      <AuthProvider>
+      <AuthProvider>  
         <div className='container'>
           <Switch>
             <NonPrivRoute exact path='/signup' component={Signup} />

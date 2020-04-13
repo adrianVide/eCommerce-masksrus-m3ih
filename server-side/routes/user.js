@@ -48,10 +48,12 @@ router.get('/cart/:id', async (req, res, next) => {
 
 router.get('/wishlistid/:id', async (req, res, next) => {
 
+  console.log(req.session.currentUser._id);
   try {
-  const requests = await User.findById(req.session.currentUser._id)
-  res.json(requests);
+    const requests = await User.findById(req.session.currentUser._id)
+    res.json(requests.wishList);
   }catch(error) {
+    console.log('Error catcher')
     res.status(404).json({errorMessage: 'Nothing found'})
   }
 });

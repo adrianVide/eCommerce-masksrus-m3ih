@@ -72,3 +72,7 @@
   border-color: white!important;
   /* box-shadow: silver; */
 }
+
+h5 {
+  display: inline;
+}

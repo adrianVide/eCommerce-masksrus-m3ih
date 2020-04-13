@@ -2,7 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
+
 const MainList = () => {
+
    
 
     const [data, setData] = useState([]);
@@ -28,6 +30,7 @@ const MainList = () => {
           </form>
 
           {filteredData ? (filteredData.map((mask) => {
+
         return (
           <div key={mask._id} className="card border-info mb-1 shadow">
             
@@ -37,7 +40,7 @@ const MainList = () => {
                 {mask.originalPrice} €
               </span>
               <div><div className="card-header">
-              <h5>{mask.name}</h5>
+              <h5 className="text-left">{mask.name}</h5>
             </div>
                 {/* <h5 className="card-title">{mask.name}</h5> */}
                 <p className="card-text">{mask.description}</p>

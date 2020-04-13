@@ -14,6 +14,8 @@ class apiService {
   get_cartlist(props){
     return this.auth.get(`user/cart/${props.user._id}`)
   }
+
+
 }
 
 const ApiService = new apiService();

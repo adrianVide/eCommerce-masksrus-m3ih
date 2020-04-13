@@ -6,8 +6,9 @@ import {Link} from 'react-router-dom'
 const Cart = (props) => {
   const [cartList, setCarList] = useState([]);
 
+  
   useEffect(() => {
-
+    
     //console.log(props)
     ApiService.get_cartlist(props).then((responseFromAPI) => {
       // console.log(responseFromAPI)
@@ -15,44 +16,17 @@ const Cart = (props) => {
       //console.log(responseFromAPI.data);
     });
   }, []);
-  //console.log(cartList)
-/* 
-  return  <div>
-    <h2>Your cart</h2>
-
-    {cartList.map(productInCart => {
-      // console.log(productInCart)
-      return (
-        <div key={productInCart._id} className="card border-info mb-1 shadow">
-          <h3>Shopping Cart</h3>
-          <div className="d-flex card-body text-info">
-            <h5 className="text-left">{productInCart.productId.name}</h5>
-            <span className="align-self-center">
-              <img className="list-img" src={productInCart.productId.photo} alt="" />
-              {productInCart.productId.originalPrice} €
-                  </span>
-            <div>
-              <div className="card-header">
-              </div>
-              <h5 className="card-title">{productInCart.name}</h5>
-              <p className="card-text">{productInCart.description}</p>
-              <p>x:{productInCart.quantity}</p>
-            </div>
-            <span>{productInCart.productId.originalPrice * productInCart.quantity}</span>
-          </div>
-
-
-        </div>
-      )
-    }
-    )}
-    <span>Total Amount : {cartList.length ? cartList.reduce((acc, currentv) => { console.log(acc); console.log(currentv); return (Number(acc.productId.originalPrice * acc.quantity) + Number(currentv.productId.originalPrice * currentv.quantity)) }).toFixed(2) : 'Loading'}</span>
-  */
+  
+  
+   const handleRemoveItem = () => {
+     setCarList(cartList.filter(_id => _id !== _id));
+   };
+   console.log(cartList)
 
   return <div>
 
         <div>
-          <nav class="navbar navbar-expand-md navbar-dark bg-danger ">
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
             <div class="container">
               <a class="navbar-brand" href="index.html">Shopping list</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,9 +58,9 @@ const Cart = (props) => {
                      
                     </div>
                   </div>
-                  <a class="btn btn-success btn-sm ml-3" href="cart.html">
+                  <a class="btn btn-success btn-sm ml-3" href="/cart">
                     <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">3</span>
+                    <span class="badge badge-light">{cartList.length ? cartList.reduce((acc, currentv) => Number(acc.quantity + currentv.quantity)): null}</span>
                   </a>
                 </form>
               </div>
@@ -124,7 +98,7 @@ const Cart = (props) => {
                         <td>Stock:{productInCart.stock}</td>
                         <td><input class="form-control" type="text" value={`${productInCart.quantity}`} /></td>
                         <td class="text-right">{productInCart.productId.originalPrice} €</td>
-                        <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        <td class="text-right"><button onClick={handleRemoveItem} class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i> </button> </td>
                       </tr>
                     </tbody>
               

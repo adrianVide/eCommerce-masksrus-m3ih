@@ -12,7 +12,7 @@ const Product = (props) => {
   const [theWishlist, setTheWishlist] = useState([]);
   const [update, setUpdate] = useState(false);
   theWishlist.includes(theProduct._id) ? (theHeart = true) : (theHeart = false);
-  console.log("Refresh");
+  // console.log("Refresh");
 
   useEffect(() => {
     axios
@@ -20,14 +20,14 @@ const Product = (props) => {
       .then((apiResponse) => {
         setTheProduct(apiResponse.data);
       });
-      if (props.user) {
-        ApiService.get_wishlist(props).then((responseFromAPI) => {
-          if (responseFromAPI !== theWishlist) {
-            setTheWishlist(responseFromAPI.data);
-            console.log(responseFromAPI.data);
-          }
-        });
-      }
+    if (props.user) {
+      ApiService.get_wishlist(props).then((responseFromAPI) => {
+        if (responseFromAPI !== theWishlist) {
+          setTheWishlist(responseFromAPI.data);
+          console.log(responseFromAPI.data);
+        }
+      });
+    }
     // console.log(props.user.wishList);
 
     setIsLoading(false);
@@ -63,7 +63,7 @@ const Product = (props) => {
         </div>
       ) : (
         <div className="container">
-          <h1 className="my-4">{theProduct.name}</h1>
+          <h1 className="turquoise-color my-4">{theProduct.name}</h1>
           <h2>by {theProduct.brand}</h2>
 
           <div className="row">
@@ -76,16 +76,25 @@ const Product = (props) => {
                 <span className="float-right turquoise-color">
                   {theHeart ? (
                     <button onClick={heartChange}>
-                      test<i class="fa fa-heart" aria-hidden="true"></i>
+                      <i
+                        class="turquoise-color fa fa-heart"
+                        aria-hidden="true"
+                      />
                     </button>
                   ) : (
                     <button onClick={heartChange}>
-                      test<i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <i
+                        class="turquoise-color fa fa-heart-o"
+                        aria-hidden="true"
+                      />
                     </button>
                   )}
                 </span>
               ) : (
-                <span>You are not logged in, motherfucker</span>
+                <span><i
+                        class="turquoise-color fa fa-heart-o"
+                        aria-hidden="true"
+                      /> You need to <a href="/login">login</a> to add products to your wishlist.</span>
               )}
 
               <h3 className="my-3">Product Description</h3>

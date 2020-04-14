@@ -6,18 +6,10 @@
 
 * {
   font-family: 'Ubuntu', sans-serif;
+  font-size: small;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -97,3 +89,10 @@ h5 {
 .card-header:first-child {
   border-radius: 0px 0.25rem 0px 0px;
 }
+
+h2 {
+  font-style: italic;
+  font-size: 5vw;
+  color: #003838;
+}
+

@@ -21,7 +21,7 @@ class Signup extends React.Component {
     } else {
       
       this.props.signup({ email, password, confirmPassword, shippingAddress});
-      console.log(this.props.signup)
+      //console.log(this.props.signup)
 
     }
 

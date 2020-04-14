@@ -1,11 +1,11 @@
 import React from 'react'
-import SearchBar from '../components/SearchBar';
+import MainList from '../components/MainList';
 
 
 function Home() {
   return (
     <div> 
-      <SearchBar/>
+      
       <h1>Welcome</h1>
     </div>
   )

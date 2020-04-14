@@ -14,7 +14,7 @@ const MainList = (props) => {
     axios.get(`http://localhost:4000/products`).then((apiResponse) => {
       setData(apiResponse.data);
     });
-    console.log(props);
+   // console.log(props);
     if (props.user) {
       ApiService.get_wishlist(props).then((responseFromAPI) => {
         setWishMasks(responseFromAPI.data);

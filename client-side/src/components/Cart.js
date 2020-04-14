@@ -22,26 +22,39 @@ const Cart = (props) => {
     const delete_from_cart = (id)=> {
         ApiService.delete_from_cart(id)
         .then((responseFromAPI) => {
-          console.log(responseFromAPI)
+         // console.log(responseFromAPI)
         
         setUpdateState(!updateState)
 
         })
     }
   
-  const subTotal = () => {
+  const subTotal =  ()  => {
+    //console.log(cartList)
    
-   if(cartList.length === 0){
+/*    if(cartList.length === 0){
      return 0
    } else if(cartList.length === 1){
      return (cartList[0].productId.originalPrice * cartList[0].quantity).toFixed(2)
    } else{
      return cartList.reduce((acc, cv) => {
-
+       console.log(cartList)
        return (acc.productId.originalPrice*acc.quantity + cv.productId.originalPrice*cv.quantity).toFixed(2)
      })
    }
+   
+  } */
+  
+    let theSub=0
+  for(let i=0; i< cartList.length; i++){
+
+    //console.log(Number(cartList[i].productId.originalPrice))
+    theSub += Number(cartList[i].productId.originalPrice*cartList[i].quantity)
+  
+    }
+    return theSub.toFixed(2)
   }
+
 
   console.log('este es el subtotal')
   console.log(subTotal())
@@ -51,7 +64,6 @@ const Cart = (props) => {
         <div>
           <nav classNameName="navbar navbar-expand-md navbar-dark bg-dark ">
             <div className="container">
-              <a className="navbar-brand" href="index.html">Shopping list</a>
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -145,7 +157,7 @@ const Cart = (props) => {
                         <td>Shipping</td>
                         <td className="text-right">6.90 €</td>
                       </tr>
-
+                      
                       <tr>
                         <td></td>
                         <td></td>
@@ -159,7 +171,7 @@ const Cart = (props) => {
               <div className="col mb-2">
                 <div className="row">
                   <div className="col-sm-12  col-md-6">
-                   <Link to='/products' button className="btn btn-block btn-light" >Continue Shopping/</Link>
+                   <Link to='/products' className="btn btn-block btn-light" >Continue Shopping</Link>
                   </div>
                   <div className="col-sm-12 col-md-6 text-right">
                     <button className="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>

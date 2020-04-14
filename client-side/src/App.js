@@ -12,6 +12,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import WishList from "./components/WishList";
 import Cart from './components/Cart'
 import Home from './urls/Home'
+import {Route} from 'react-router-dom'
 
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
           <Switch>
             <NonPrivRoute exact path='/' component={Home} />
             <NonPrivRoute exact path='/signup' component={Signup} />
-            <NonPrivRoute exact path='/products' component={MainList} />
+            <Route exact path='/products' component={MainList} />
             <NonPrivRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/user' component={User} />
             <PrivateRoute exact path='/wishlist' component={WishList} />

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import {needAuth} from '../lib/Auth-provider'
 
 
 
@@ -14,4 +15,4 @@ function NonPrivRoute({ component: Component, isLoggedin, ...rest }) {
   );
 }
 
-export default NonPrivRoute;
+export default needAuth(NonPrivRoute);

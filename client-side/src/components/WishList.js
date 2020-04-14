@@ -14,7 +14,8 @@ const WishList = (props) => {
   }, []);
   console.log(wishlistHearts);
 
-  return <div></div>;
+  return <div>
+  hello</div>;
 };
 
 export default needAuth(WishList);

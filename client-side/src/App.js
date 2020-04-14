@@ -24,14 +24,14 @@ class App extends Component {
       <AuthProvider>  
         <div className='container'>
           <Switch>
-            <NonPrivRoute exact path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             <NonPrivRoute exact path='/signup' component={Signup} />
             <Route exact path='/products' component={MainList} />
             <NonPrivRoute exact path='/login' component={Login} />
-            <PrivateRoute exact path='/user' component={User} />
+            <PrivateRoute  path='/user' component={User} />
             <PrivateRoute exact path='/wishlist' component={WishList} />
             <PrivateRoute exact path='/cart' component={Cart} />
-            <NonPrivRoute exact path='/products/:id' component={Product} />
+            <Route exact path='/products/:id' component={Product} />
           </Switch>
         </div>
       </AuthProvider>

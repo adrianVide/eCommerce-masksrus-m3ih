@@ -4,7 +4,7 @@ import ApiService from "../lib/service.js";
 import {Link} from 'react-router-dom'
 
 const Cart = (props) => {
-  const [cartList, setCarList] = useState([]);
+  const [cartList, setCartList] = useState([]);
 
   
   useEffect(() => {
@@ -12,16 +12,19 @@ const Cart = (props) => {
     //console.log(props)
     ApiService.get_cartlist(props).then((responseFromAPI) => {
       // console.log(responseFromAPI)
-      setCarList(responseFromAPI.data);
+      setCartList(responseFromAPI.data);
       //console.log(responseFromAPI.data);
     });
   }, []);
   
+
+    const delete_from_cart = (id)=> {
+        ApiService.delete_from_cart(id).then((responseFromAPI) => {
+          console.log(responseFromAPI)
+        
+        })
+    }
   
-   const handleRemoveItem = () => {
-     setCarList(cartList.filter(_id => _id !== _id));
-   };
-   console.log(cartList)
 
   return <div>
 
@@ -96,9 +99,9 @@ const Cart = (props) => {
                         <td><img style={{height:'40px'}} src = {productInCart.productId.photo} alt=''/> </td>
                         <td>{productInCart.productId.name}</td>
                         <td>Stock:{productInCart.stock}</td>
-                        <td><input class="form-control" type="text" value={`${productInCart.quantity}`} /></td>
+                        <td><input class="form-control" type="number" value={`${productInCart.quantity}`} /></td>
                         <td class="text-right">{productInCart.productId.originalPrice} €</td>
-                        <td class="text-right"><button onClick={handleRemoveItem} class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i> </button> </td>
+                        <td class="text-right"><button onClick={() => delete_from_cart(productInCart.productId)} class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i> </button> </td>
                       </tr>
                     </tbody>
               
@@ -106,7 +109,7 @@ const Cart = (props) => {
     )}
                       <tr>
                         <td> Subtotal:</td>
-                        <td class="text-right"> {cartList.length ? cartList.reduce((acc, currentv) => { console.log(acc); console.log(currentv); return (Number(acc.productId.originalPrice * acc.quantity) + Number(currentv.productId.originalPrice * currentv.quantity)) }).toFixed(2) : 'Loading'}€</td>
+                        <td class="text-right"> {cartList.length > 1  ? cartList.reduce((acc, currentv) => { console.log(acc); console.log(currentv); return (Number(acc.productId.originalPrice * acc.quantity) + Number(currentv.productId.originalPrice * currentv.quantity)) }).toFixed(2) : 'Loading'}€</td>
                       </tr>
 
                       <tr>

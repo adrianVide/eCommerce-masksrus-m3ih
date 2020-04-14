@@ -63,7 +63,7 @@ const Product = (props) => {
         </div>
       ) : (
         <div className="container">
-          <h1 className="turquoise-color my-4">{theProduct.name}</h1>
+          <h1 className="turquoise-color my-1">{theProduct.name}</h1>
           <h2>by {theProduct.brand}</h2>
 
           <div className="row">
@@ -91,10 +91,11 @@ const Product = (props) => {
                   )}
                 </span>
               ) : (
-                <span><i
-                        class="turquoise-color fa fa-heart-o"
-                        aria-hidden="true"
-                      /> You need to <a href="/login">login</a> to add products to your wishlist.</span>
+                <span>
+                  <i class="turquoise-color fa fa-heart-o" aria-hidden="true" />{" "}
+                  You need to <a href="/login">login</a> to add products to your
+                  wishlist.
+                </span>
               )}
 
               <h3 className="my-3">Product Description</h3>
@@ -109,8 +110,17 @@ const Product = (props) => {
               </ul>
             </div>
           </div>
+          <div>
+            <button type="button" class="btn btn-dark btn-lg btn-block turquoise-color mb-4">
+              <i
+                class="turquoise-color fa fa-shopping-cart"
+                aria-hidden="true"
+              />  Add to Cart
+              
+            </button>
+          </div>
 
-          <h3 className="my-4">Related Products</h3>
+          {/* <h3 className="my-4">Related Products</h3>
 
           <div className="row">
             <div className="col-md-3 col-sm-6 mb-4">
@@ -152,7 +162,7 @@ const Product = (props) => {
                 />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

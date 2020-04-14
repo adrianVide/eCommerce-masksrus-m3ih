@@ -11,6 +11,7 @@ class apiService {
     return this.auth.get(`/user/wishlistid/${props.user._id}`);
   }
 
+
   get_cartlist(props){
     return this.auth.get(`user/cart/${props.user._id}`)
   }
@@ -19,6 +20,14 @@ class apiService {
     return this.auth.delete(`products/deletefromcart/${id}`)
   }
 
+
+  removeFromWishlist(id) {
+    return this.auth.post(`/products/removefromwishlist/${id}`)
+  }
+
+  addToWishlist(id) {
+    return this.auth.post(`/products/addtowishlist/${id}`)
+  }
 }
 
 const ApiService = new apiService();

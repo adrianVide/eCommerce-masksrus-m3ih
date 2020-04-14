@@ -56,11 +56,11 @@ router.post('/login',
     validationLoggin(),
     async (req, res, next) => {
         const { email, password } = req.body;
-        //console.log({email, password})
+        console.log({email, password})
 
         try {
             const findUser = await User.findOne({ email });
-
+            console.log(findUser)
             if (!findUser) {
                 next(createError(404))
             } else if (bcrypt.compareSync(password, findUser.password)) {
@@ -68,7 +68,9 @@ router.post('/login',
                 res.status(200).json(findUser);
                 return;
             } else {
+                console.log('ERROR user not found')
                 next(createError(404));
+
             }
 
         } catch (error) {

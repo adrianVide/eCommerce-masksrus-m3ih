@@ -133,3 +133,9 @@ h3 {
 .border {
   border: 0px!important;
 }
+
+
+.btn-outline-warning {
+  color: #00E2E1;
+  border-color: #00E2E1;
+}

@@ -26,17 +26,21 @@ const Navbar = (props) => {
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="#">
-                Home <span class="sr-only">(current)</span>
+                Our Masks <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Our Masks
+                <button type="button" class="btn btn-warning">
+                  Shopping Cart
+                </button>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Who we are
+                <button type="button" class="btn btn-outline-warning">
+                  Your Wishlist
+                </button>
               </a>
             </li>
             <li class="nav-item">
@@ -64,10 +68,13 @@ const Navbar = (props) => {
                     aria-labelledby="navbarDropdownMenuLink"
                   >
                     <a class="dropdown-item" href="#">
-                     Shopping Cart
+                      Shopping Cart
                     </a>
                     <a class="dropdown-item" href="#">
-                     Wishlist
+                      Wishlist
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      Your profile
                     </a>
                     {/* <a class="dropdown-item" href="#">
                 </a> */}

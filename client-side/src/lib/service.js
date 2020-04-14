@@ -10,6 +10,14 @@ class apiService {
   get_wishlist(props) {
     return this.auth.get(`/user/wishlistid/${props.user._id}`);
   }
+
+  removeFromWishlist(id) {
+    return this.auth.post(`/products/removefromwishlist/${id}`)
+  }
+
+  addToWishlist(id) {
+    return this.auth.post(`/products/addtowishlist/${id}`)
+  }
 }
 
 const ApiService = new apiService();

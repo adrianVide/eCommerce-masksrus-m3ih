@@ -21,10 +21,21 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/addtowishlist/:id", async (req, res, next) => {
+
+
   const theProduct = await Product.findById(req.params.id);
   res.json(theProduct);
-  const loggedUser = await User.findById(req.session.currentUser._id);
-  await User.findByIdAndUpdate(loggedUser, { $push: { wishList: theProduct } });
+ 
+  await User.findByIdAndUpdate(req.session.currentUser._id, { $push: { wishList: theProduct._id } });
+  
+});
+
+
+router.post("/removefromwishlist/:id", async (req, res, next) => {
+
+  await User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { wishList: req.params.id } });
+  res.json(req.params.id + 'removed');
+
 });
 
 /// Cart Routes:

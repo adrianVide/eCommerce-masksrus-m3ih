@@ -14,6 +14,9 @@ import Cart from './components/Cart'
 import Home from './urls/Home'
 import {Route} from 'react-router-dom'
 
+import Product from "./components/Product";
+
+
 
 class App extends Component {
   render() {
@@ -28,8 +31,7 @@ class App extends Component {
             <PrivateRoute exact path='/user' component={User} />
             <PrivateRoute exact path='/wishlist' component={WishList} />
             <PrivateRoute exact path='/cart' component={Cart} />
-
-
+            <NonPrivRoute exact path='/products/:id' component={Product} />
           </Switch>
         </div>
       </AuthProvider>

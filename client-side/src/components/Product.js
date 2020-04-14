@@ -91,7 +91,7 @@ const Product = (props) => {
                   )}
                 </span>
               ) : (
-                <span>
+                <span class="badge badge-dark">
                   <i class="turquoise-color fa fa-heart-o" aria-hidden="true" />{" "}
                   You need to <a href="/login">login</a> to add products to your
                   wishlist.

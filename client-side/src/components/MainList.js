@@ -60,9 +60,9 @@ const MainList = (props) => {
                         <h5 className="text-left turquoise-color ml-2">{mask.name}</h5>
                         <span className="float-right turquoise-color">
                           {mask.inWishList ? (
-                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <i class="turquoise-color fa fa-heart" aria-hidden="true"></i>
                           ) : (
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="turquoise-color fa fa-heart-o" aria-hidden="true"></i>
                           )}
                         </span>
                       </div>

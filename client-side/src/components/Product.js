@@ -73,29 +73,37 @@ const Product = (props) => {
 
             <div className="col-md-4">
               {props.user ? (
-                <span className="float-right turquoise-color">
+                <div className="my-3 float-right turquoise-color">
                   {theHeart ? (
-                    <button onClick={heartChange}>
+                    <button
+                      onClick={heartChange}
+                      class="badge badge-dark heart-button "
+                    >
+                      In your wishlist{" "}
                       <i
-                        class="turquoise-color fa fa-heart"
+                        class="turquoise-color fa fa-heart "
                         aria-hidden="true"
                       />
                     </button>
                   ) : (
-                    <button onClick={heartChange}>
+                    <button
+                      onClick={heartChange}
+                      class="badge badge-dark heart-button "
+                    >
+                      Add it to your wishlist{" "}
                       <i
                         class="turquoise-color fa fa-heart-o"
                         aria-hidden="true"
                       />
                     </button>
                   )}
-                </span>
+                </div>
               ) : (
-                <span class="badge badge-dark">
+                <div class="my-3 float-right badge badge-dark">
                   <i class="turquoise-color fa fa-heart-o" aria-hidden="true" />{" "}
                   You need to <a href="/login">login</a> to add products to your
                   wishlist.
-                </span>
+                </div>
               )}
 
               <h3 className="my-3">Product Description</h3>
@@ -111,12 +119,20 @@ const Product = (props) => {
             </div>
           </div>
           <div>
-            <button type="button" class="btn btn-dark btn-lg btn-block turquoise-color mb-4">
+            <span>{theProduct.originalPrice}</span>
+            <span>{theProduct.originalPrice}</span>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-dark btn-lg btn-block turquoise-color mb-4"
+            >
               <i
                 class="turquoise-color fa fa-shopping-cart"
                 aria-hidden="true"
-              />  Add to Cart
-              
+              />{" "}
+              Add to Cart
             </button>
           </div>
 

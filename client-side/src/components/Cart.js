@@ -32,19 +32,6 @@ const Cart = (props) => {
   const subTotal =  ()  => {
     //console.log(cartList)
    
-/*    if(cartList.length === 0){
-     return 0
-   } else if(cartList.length === 1){
-     return (cartList[0].productId.originalPrice * cartList[0].quantity).toFixed(2)
-   } else{
-     return cartList.reduce((acc, cv) => {
-       console.log(cartList)
-       return (acc.productId.originalPrice*acc.quantity + cv.productId.originalPrice*cv.quantity).toFixed(2)
-     })
-   }
-   
-  } */
-  
     let theSub=0
   for(let i=0; i< cartList.length; i++){
 
@@ -54,10 +41,9 @@ const Cart = (props) => {
     }
     return theSub.toFixed(2)
   }
-
-
+/* 
   console.log('este es el subtotal')
-  console.log(subTotal())
+  console.log(subTotal()) */
 
   return <div>
 

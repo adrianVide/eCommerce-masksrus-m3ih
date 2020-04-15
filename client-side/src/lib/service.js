@@ -11,6 +11,10 @@ class apiService {
     return this.auth.get(`/user/wishlistid/${props.user._id}`);
   }
 
+  get_wishlist_pop(props) {
+    return this.auth.get(`/user/wishlist/${props.user._id}`);
+  }
+
 
   get_cartlist(props){
     return this.auth.get(`user/cart/${props.user._id}`)

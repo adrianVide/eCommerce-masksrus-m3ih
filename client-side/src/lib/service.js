@@ -28,6 +28,7 @@ class apiService {
   addToWishlist(id) {
     return this.auth.post(`/products/addtowishlist/${id}`)
   }
+
 }
 
 const ApiService = new apiService();

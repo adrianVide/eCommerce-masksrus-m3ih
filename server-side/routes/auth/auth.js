@@ -56,11 +56,11 @@ router.post('/login',
     validationLoggin(),
     async (req, res, next) => {
         const { email, password } = req.body;
-        //console.log({email, password})
+        console.log({email, password})
 
         try {
             const findUser = await User.findOne({ email });
-
+            console.log(findUser)
             if (!findUser) {
                 next(createError(404))
             } else if (bcrypt.compareSync(password, findUser.password)) {
@@ -68,7 +68,9 @@ router.post('/login',
                 res.status(200).json(findUser);
                 return;
             } else {
+                console.log('ERROR user not found')
                 next(createError(404));
+
             }
 
         } catch (error) {
@@ -95,17 +97,38 @@ router.get("/user", isLoggedIn(), (req, res, next) => {
   
 //user/edit-profile
 
-  router.post('/user/:userId/edit-profile', (req, res, next) => {
-    User.findByIdAndUpdate(req.params.userId, req.body)
-    .then(() => {
-      res.json({
-        message: `User ${req.params.userId} is updated successfully.`
-      });
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
+  router.post('/user/:userId/edit-profile', async  (req, res, next) => {
 
+        try {
+
+    const {email, shippingAddress, password} = req.body
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const findEmail = await User.findOne({email:email})
+    
+    if(!email|| !password|| !shippingAddress){
+     res.status(401).json('You must fill the gaps!')
+    }
+
+    
+    if(!findEmail || email === req.session.currentUser.email ) {
+    const hashPass = bcrypt.hashSync(password, salt);
+    const udpdatedUser = await User.findByIdAndUpdate(req.params.userId, {email, shippingAddress, password:hashPass}, {new:true})
+    req.session.currentUser = udpdatedUser  
+    res.status(200).json(udpdatedUser)
+    
+    } 
+    
+    else {
+        res.json('Email already exists on db') 
+    }
+    
+    
+
+        }catch {
+      next(error);
+      
+    }
+  
+  });
 
 module.exports = router

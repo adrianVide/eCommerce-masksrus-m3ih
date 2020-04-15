@@ -12,7 +12,7 @@ const needAuth = (WrappedComponent) => {
       
       return (
         <Consumer>
-          {({ login, signup, user, logout, isLoggedin }) => {
+          {({ login, signup, user,logout, isLoggedin }) => {
             return (
               <WrappedComponent
                 login={login}
@@ -47,14 +47,27 @@ class AuthProvider extends React.Component {
       );
   }
 
+/*   
+    editProfile = (user) => {
+      const {email, shippingAddress, password} = user;
+      auth
+        .editProfile({email, shippingAddress, password})
+        .then((user) => {
+         console.log('Hola profile')
+         this.setState({isLoggedin:true, user})
+    })
+        .catch((err) => console.log(err));
+    }; */
+  
+
   signup = (user) => {
     const { email, password, shippingAddress } = user;
   
     auth
       .signup({ email, password, shippingAddress })
       .then((user) => this.setState({ isLoggedin: true, user }))
-      .catch(({ response }) =>
-        this.setState({ message: response.data.statusMessage })
+      .catch((err) => console.log(err)
+        
       );
   };
 
@@ -76,7 +89,7 @@ class AuthProvider extends React.Component {
 
   render() {
    
-    const { isLoading, isLoggedin, user } = this.state;
+    const { isLoading, isLoggedin, user, editProfile } = this.state;
     const { login, logout, signup } = this;
 
     return isLoading ? (
@@ -89,7 +102,7 @@ class AuthProvider extends React.Component {
 
    /></div>
     ) : (
-      <Provider value={{ isLoggedin, user, login, logout, signup }}>
+      <Provider value={{ isLoggedin, user,login, logout, signup }}>
         {this.props.children}
       </Provider>
     );

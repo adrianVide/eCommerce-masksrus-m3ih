@@ -16,9 +16,9 @@ import WishList from "./components/WishList";
 import Cart from './components/Cart'
 import Home from './urls/Home'
 import {Route} from 'react-router-dom'
-
 import Product from "./components/Product";
 import Navbar from "./components/Navbar";
+import EditProfile from './components/EditProfile'
 
 
 
@@ -29,14 +29,14 @@ class App extends Component {
         <div>
         <Navbar/>
           <Switch>
-            <NonPrivRoute exact path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             <NonPrivRoute exact path='/signup' component={Signup} />
             <Route exact path='/products' component={MainList} />
             <NonPrivRoute exact path='/login' component={Login} />
-            <PrivateRoute exact path='/user' component={User} />
+            <PrivateRoute  exact path='/user' component={User} />
+            <PrivateRoute  path='/user/:id/edit-profile' component={EditProfile}/>
             <PrivateRoute exact path='/wishlist' component={WishList} />
             <PrivateRoute exact path='/cart' component={Cart} />
-            
             <Route exact path='/products/:id' component={Product} />
           </Switch>
         </div>

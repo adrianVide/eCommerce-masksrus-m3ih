@@ -19,6 +19,7 @@ const WishList = (props) => {
   return (
     // <div classNameName="my-5 my-auto w-100 d-inline-block">
     <div>
+    <h1 className='wishtitle'>Your Wishlist</h1>
       <div class="card-group">
         {wishlistHearts
           ? wishlistHearts.map((mask) => {
@@ -27,10 +28,10 @@ const WishList = (props) => {
                   <div class="card">
                     <img src={mask.photo} class="card-img-top" alt="..." />
                     <div class="card-body">
-                      <h5 class="card-title">{mask.name}</h5>
+                      <h3 class="card-title turquoise-color">{mask.name}</h3>
                       <p class="card-text">{mask.description}</p>
                       <p class="card-text">
-                        <small class="text-muted">{mask.originalPrice}</small>
+                        <h3 class="text-muted">{mask.originalPrice} €</h3>
                       </p>
                     </div>
                   </div>

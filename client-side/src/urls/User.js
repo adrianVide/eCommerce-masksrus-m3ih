@@ -27,7 +27,7 @@ class User extends Component {
 </div>
 </div>
       <div className=" col-md-4 text-center" role="group" aria-label="Basic example">
-  <button type="button" className="btn btn-primary">Edit Profile</button>
+ <Link to={`/user/${this.props.user._id}/edit-profile`}> <button type="button" className="btn btn-primary">Edit Profile</button></Link>
   <button type="button" className="btn btn-danger"  onClick={this.props.logout}>Log out</button>
 </div>
 <div class="col-md-4 text-center"> 

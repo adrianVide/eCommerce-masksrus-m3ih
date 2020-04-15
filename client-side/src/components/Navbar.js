@@ -8,7 +8,7 @@ const Navbar = (props) => {
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="IronHack.png" alt="" />
         </a>
         <button
@@ -25,29 +25,29 @@ const Navbar = (props) => {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/products">
                 Our Masks <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/cart">
                 <button type="button" class="btn btn-warning">
                   Shopping Cart
                 </button>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/wishlist">
                 <button type="button" class="btn btn-outline-warning">
                   Your Wishlist
                 </button>
               </a>
             </li>
-            <li class="nav-item">
+            {/* <li class="nav-item">
               <a class="nav-link" href="#">
                 Contact
               </a>
-            </li>
+            </li> */}
             {props.user ? (
               <div>
                 <li class="nav-item dropdown">
@@ -67,13 +67,13 @@ const Navbar = (props) => {
                     class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink"
                   >
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/cart">
                       Shopping Cart
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/wishlist">
                       Wishlist
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/user">
                       Your profile
                     </a>
                     {/* <a class="dropdown-item" href="#">
@@ -93,17 +93,17 @@ const Navbar = (props) => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    Your Accout
+                    Your Acconut
                   </a>
 
                   <div
                     class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink"
                   >
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/login">
                       Log in
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/signup">
                       Sign up
                     </a>
                     {/* <a class="dropdown-item" href="#">
